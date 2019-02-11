@@ -1,53 +1,53 @@
 import unittest
 from create import Create
-class Usertest:
-def setUp(self):
-    '''
-    Set up method to run before each test cases.
-    '''
-    self.new_create = Create("wivine","wihogora","wivi@gmail.com","wivi","wivi") # create contact object
-def test_init(self):
-    '''
-    test_init test case to test if the object is initialized properly
-    '''
-    self.assertEqual(self.new_create.first_name,"wivine")
-    self.assertEqual(self.new_create.last_name,"wihogora")
-    self.assertEqual(self.new_create.email,"wivi@gmail.com")
-    self.assertEqual(self.new_create.username,"wivi")
-    self.assertEqual(self.new_create.password,"wivi")
+class Usertest(inittest.TestCase):
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_create = Create("wivine","wihogora","wivi@gmail.com","wivi","wivi") # create contact object
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_create.first_name,"wivine")
+        self.assertEqual(self.new_create.last_name,"wihogora")
+        self.assertEqual(self.new_create.email,"wivi@gmail.com")
+        self.assertEqual(self.new_create.username,"wivi")
+        self.assertEqual(self.new_create.password,"wivi")
 
-def test_save_create(self):
-    '''
-    test_save_create test case to test if the contact object is saved into
-    the contact list
-    '''
-    self.new_create.save_create() # saving the new contact
-    self.assertEqual(len(Create.create_list),1)
+    def test_save_create(self):
+        '''
+        test_save_create test case to test if the contact object is saved into
+        the contact list
+        '''
+        self.new_create.save_create() # saving the new contact
+        self.assertEqual(len(Create.create_list),1)
 
-contact_list = [] # Empty contact list
- # Init method up here
-def save_create(self):
+    contact_list = [] # Empty contact list
+    # Init method up here
+    def save_create(self):
 
-    '''
-    save_create method saves contact objects into create_list
-    '''
+        '''
+        save_create method saves contact objects into create_list
+        '''
 
-    Create.create_list.append(self)
+        Create.create_list.append(self)
 
-# Items up here...
+    # Items up here...
 
-def test_save_multiple_create(self):
-    '''
-    test_save_multiple_create to check if we can save multiple users
-    objects to our create_list
-    '''
-    self.new_create.save_create()
-    test_create = Create("naima","niyigena","naima@gmail.com","mami","neimar") # new contact
-    test_create.save_create()
-    self.assertEqual(len(Create.create_list),2)
+    def test_save_multiple_create(self):
+        '''
+        test_save_multiple_create to check if we can save multiple users
+        objects to our create_list
+        '''
+        self.new_create.save_create()
+        test_create = Create("naima","niyigena","naima@gmail.com","mami","neimar") # new contact
+        test_create.save_create()
+        self.assertEqual(len(Create.create_list),2)
 
 
 
-if __name__ == '__main__':
-    unittest.main()
-    pass
+    if __name__ == '__main__':
+        unittest.main()
+pass
