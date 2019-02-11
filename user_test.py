@@ -17,12 +17,21 @@ def test_init(self):
 
 def test_save_create(self):
     '''
-    test_save_contact test case to test if the contact object is saved into
+    test_save_create test case to test if the contact object is saved into
     the contact list
     '''
     self.new_create.save_create() # saving the new contact
     self.assertEqual(len(Create.create_list),1)
 
+contact_list = [] # Empty contact list
+ # Init method up here
+def save_create(self):
+
+    '''
+    save_create method saves contact objects into create_list
+    '''
+
+    Create.create_list.append(self)
 
 if __name__ == '__main__':
     unittest.main()
