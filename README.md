@@ -19,3 +19,14 @@ https://github.com/Wihogora/password-locker
 * A user should have the option of putting in a password that he want to use for the new credential account.
 
 * A user should delete a credentials account that he is no longer need in the application.
+
+## Technologies used
+* Python
+
+
+
+## Support and contact details
+If u have any question u can contact me on:
+
+* Tel:+250788716357
+* Email:wwihogora@gmail.com

@@ -1,5 +1,6 @@
 import unittest
 from create import Create
+class Usertest:
 def setUp(self):
     '''
     Set up method to run before each test cases.
@@ -49,3 +50,4 @@ def test_save_multiple_create(self):
 
 if __name__ == '__main__':
     unittest.main()
+    pass
