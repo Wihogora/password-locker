@@ -1,9 +1,9 @@
-class User:
+class Credential:
         """
         Class that generates new instances of user
 
         """
-        user_list = [] # Empty user list
+        credential_list = [] # Empty credential list
         def __init__(self,first_name,last_name,email,username,password):
 
             self.first_name = first_name
@@ -13,21 +13,21 @@ class User:
             self.password = password
         
         # Init method up here
-        def save_user(self):
+        def save_credential(self):
 
             '''
-            save_user method saves users objects into user_list
+            save_credential method saves users objects into user_list
             '''
 
-            User.user_list.append(self)
+            Credential.credential_list.append(self)
 
-        def delete_user(self):
+        def delete_credential(self):
 
             '''
-            delete_user method deletes a saved user from the user_list
+            delete_credential method deletes a saved user from the credential_list
             '''
 
-            User.user_list.remove(self)
+            Credential.credential_list.remove(self)
 
         @classmethod
         def find_by_username(cls,username):
@@ -36,26 +36,26 @@ class User:
 
             '''
 
-            for user in cls.user_list:
-                if user.username == username:
-                    return user
+            for credential in cls.credential_list:
+                if credential.username == username:
+                    return credential
                     
         @classmethod
-        def user_exist(cls,username):
+        def credential_exist(cls,username):
             '''
             Method that checks if a user exists from the users list.
             '''
-            for user in cls.user_list:
-                if user.username == username:
+            for credential in cls.credential_list:
+                if credential.username == username:
                         return True
 
             return False
         @classmethod
-        def display_user(cls):
+        def display_credential(cls):
             '''
             method that returns the users list
             '''
-            return cls.user_list
+            return cls.credential_list
 
 
 if __name__ ==  '__main__':
