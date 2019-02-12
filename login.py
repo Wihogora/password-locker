@@ -29,7 +29,7 @@ def check_existing_user(username):
     '''
     Function that check if a user exists with that username and return a Boolean
     '''
-    return User.user_exist(Username)
+    return User.user_exist(username)
 
 def display_user():
     '''
@@ -45,7 +45,7 @@ def main():
     print('\n')
 
     while True:
-            print("Use these short codes : cc - create a new user, dc - display user, fc -find a user, ex -exit the user list ")
+            print("Use these short codes : cc - create a new user, dc - display user, fc -find a user, dc - delete user, ex -exit the user list ")
 
             short_code = input().lower()
 
@@ -54,22 +54,22 @@ def main():
                         print("-"*10)
 
                         print ("first_name ....")
-                        f_name = input()
+                        first_name = input()
 
                         print("last_name ...")
-                        l_name = input()
+                        last_name = input()
 
                         print("email ...")
-                        p_number = input()
+                        email = input()
 
                         print("username ...")
-                        e_address = input()
+                        username = input()
 
                         print("password ...")
-                        e_address = input()
+                        password = input()
 
 
-                        save_contacts(create_contact(first_name,last_name,email,username,password)) # create and save new contact.
+                        save_user(create_user(first_name,last_name,email,username,password)) # create and save new user.
                         print ('\n')
                         print(f"New User {first_name} {last_name} created")
                         print ('\n')
@@ -94,7 +94,7 @@ def main():
                         print("Enter the username you want to search for")
 
                         search_username = input()
-                        if check_existing_contacts(search_username):
+                        if check_existing_user(search_username):
                                 search_user = find_user(search_username)
                                 print(f"{search_user.first_name} {search_user.last_name}")
                                 print('-' * 20)
