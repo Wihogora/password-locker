@@ -22,7 +22,7 @@ class Usertest(unittest.TestCase):
         the contact list
         '''
         self.new_create.save_create() # saving the new contact
-        self.assertEqual(len(Create.create_list),4)
+        self.assertEqual(len(Create.create_list),6)
 
     # create_list = [] # Empty contact list
     # # Init method up here
@@ -44,7 +44,7 @@ class Usertest(unittest.TestCase):
         self.new_create.save_create()
         test_create = Create("naima","niyigena","naima@gmail.com","mami","neimar") # new contact
         test_create.save_create()
-        self.assertEqual(len(Create.create_list),6)
+        self.assertEqual(len(Create.create_list),8)
         '''
         test to delete
         '''
@@ -57,15 +57,7 @@ class Usertest(unittest.TestCase):
         test_create.save_create()
 
         self.new_create.delete_create()# Deleting a create object
-        self.assertEqual(len(Create.create_list),1)
-
-    # def delete_create(self):
-
-    #     '''
-    #     delete_create method deletes a saved user from the create_list
-    #     '''
-
-    #     Create.create_list.remove(self)
+        self.assertEqual(len(Create.create_list),3)
 
 
     def test_find_create_by_username(self):
@@ -79,19 +71,27 @@ class Usertest(unittest.TestCase):
 
         found_create = Create.find_by_username("zaza")
 
-        self.assertEqual(found_create.username,test_create.email)
+        self.assertEqual(found_create.username,test_create.username)
 
-    @classmethod
-    def find_by_username(cls,username):
+    def test_create_exists(self):
         '''
-        Method that takes in a username and returns a user that matches that username.
-
+        test to check if we can return a Boolean  if we cannot find the contact.
         '''
 
-        for create in cls.create_list:
-            if create.username == username:
-                return create
+        self.new_create.save_create()
+        test_create = Create("melody","umutoni","melody@gmail.com","melo","melodi") # new contact
+        test_create.save_create()
 
+        create_exists = Create.create_exist("melo")
+
+        self.assertTrue(create_exists)
+
+    def test_display_all_create(self):
+        '''
+        method that returns a list of all users saved
+        '''
+
+        self.assertEqual(Create.display_create(),Create.create_list)
 
 
 if __name__ == '__main__':

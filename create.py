@@ -29,8 +29,34 @@ class Create:
 
         Create.create_list.remove(self)
 
+    @classmethod
+    def find_by_username(cls,username):
+        '''
+        Method that takes in a username and returns a user that matches that username.
 
- 
+        '''
+
+        for create in cls.create_list:
+            if create.username == username:
+                return create
+                
+    @classmethod
+    def create_exist(cls,username):
+        '''
+        Method that checks if a user exists from the users list.
+        '''
+        for create in cls.create_list:
+            if create.username == username:
+                    return True
+
+        return False
+    @classmethod
+    def display_create(cls):
+        '''
+        method that returns the users list
+        '''
+        return cls.create_list
+
 
 if __name__ ==  '__main__':
     unittest.main()
