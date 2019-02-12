@@ -25,14 +25,14 @@ class Usertest(unittest.TestCase):
         self.assertEqual(len(Create.create_list),1)
 
     # create_list = [] # Empty contact list
-    # Init method up here
-    def save_create(self):
+    # # Init method up here
+    # def save_create(self):
 
-        '''
-        save_create method saves contact objects into create_list
-        '''
+    #     '''
+    #     save_create method saves contact objects into create_list
+    #     '''
 
-        Create.create_list.append(self)
+    #     Create.create_list.append(self)
 
     # Items up here...
 
@@ -44,9 +44,10 @@ class Usertest(unittest.TestCase):
         self.new_create.save_create()
         test_create = Create("naima","niyigena","naima@gmail.com","mami","neimar") # new contact
         test_create.save_create()
-        self.assertEqual(len(Create.create_list),2)
-
-    #  test to delete
+        self.assertEqual(len(Create.create_list),7)
+        '''
+        test to delete
+        '''
     def test_delete_create(self):
         '''
         test_delete_create to test if we can remove a user from our users list
@@ -55,7 +56,7 @@ class Usertest(unittest.TestCase):
         test_create = Create("mimi","niyigena","mimi@gmail.com","mymy","mimik") # new contact
         test_create.save_create()
 
-        self.new_create.delete_create()# Deleting a craeate object
+        self.new_create.delete_create()# Deleting a create object
         self.assertEqual(len(Create.create_list),1)
 
     def delete_create(self):
@@ -72,15 +73,24 @@ class Usertest(unittest.TestCase):
         test to check if we can find a contact by phone number and display information
         '''
 
-        self.new_contact.save_contact()
-        test_contact = Contact("Test","user","0711223344","test@user.com") # new contact
-        test_contact.save_contact()
+        self.new_create.save_create()
+        test_create= Create("zawadi","mutoni","zawadi@gmail.com","zaza","zawady") # new contact
+        test_create.save_create()
 
-        found_contact = Contact.find_by_number("0711223344")
+        found_create = Create.find_by_username("zaza")
 
-        self.assertEqual(found_contact.email,test_contact.email)
+        self.assertEqual(found_create.username,test_create.email)
 
+    @classmethod
+    def find_by_username(cls,username):
+        '''
+        Method that takes in a username and returns a user that matches that username.
 
+        '''
+
+        for create in cls.create_list:
+            if create.username == username:
+                return create
 
 
 

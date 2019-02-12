@@ -11,27 +11,27 @@ class Create:
         self.email = email
         self.username = username
         self.password = password
-    create_list = [] # Empty create list
+    
     # Init method up here
     def save_create(self):
 
-    '''
-    save_create method saves contact objects into contact_list
-    '''
+        '''
+        save_create method saves contact objects into contact_list
+        '''
 
-    Create.create_list.append(self)
+        Create.create_list.append(self)
 
 
 
 
  
-    def test_save_create(self):
-        '''
-        test_save_contact test case to test if the contact object is saved into
-            the contact list
-        '''
-        self.new_create.save_create() # saving the new contact
-        self.assertEqual(len(Create.create_list),1)
+#     def test_save_create(self):
+#         '''
+#         test_save_contact test case to test if the contact object is saved into
+#             the contact list
+#         '''
+#         self.new_create.save_create() # saving the new contact
+#         self.assertEqual(len(Create.create_list),1)
 
 if __name__ ==  '__main__':
     unittest.main()
