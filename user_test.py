@@ -1,6 +1,6 @@
 import unittest
 from create import Create
-class Usertest(inittest.TestCase):
+class Usertest(unittest.TestCase):
     def setUp(self):
         '''
         Set up method to run before each test cases.
@@ -24,7 +24,7 @@ class Usertest(inittest.TestCase):
         self.new_create.save_create() # saving the new contact
         self.assertEqual(len(Create.create_list),1)
 
-    contact_list = [] # Empty contact list
+    # create_list = [] # Empty contact list
     # Init method up here
     def save_create(self):
 
@@ -46,8 +46,44 @@ class Usertest(inittest.TestCase):
         test_create.save_create()
         self.assertEqual(len(Create.create_list),2)
 
+    #  test to delete
+    def test_delete_create(self):
+        '''
+        test_delete_create to test if we can remove a user from our users list
+        '''
+        self.new_create.save_create()
+        test_create = Create("mimi","niyigena","mimi@gmail.com","mymy","mimik") # new contact
+        test_create.save_create()
+
+        self.new_create.delete_create()# Deleting a craeate object
+        self.assertEqual(len(Create.create_list),1)
+
+    def delete_create(self):
+
+        '''
+        delete_create method deletes a saved user from the create_list
+        '''
+
+        Create.create_list.remove(self)
 
 
-    if __name__ == '__main__':
-        unittest.main()
-pass
+    def test_find_create_by_username(self):
+        '''
+        test to check if we can find a contact by phone number and display information
+        '''
+
+        self.new_contact.save_contact()
+        test_contact = Contact("Test","user","0711223344","test@user.com") # new contact
+        test_contact.save_contact()
+
+        found_contact = Contact.find_by_number("0711223344")
+
+        self.assertEqual(found_contact.email,test_contact.email)
+
+
+
+
+
+if __name__ == '__main__':
+    unittest.main()
+# pass
