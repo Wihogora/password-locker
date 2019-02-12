@@ -21,17 +21,16 @@ class Create:
 
         Create.create_list.append(self)
 
+    def delete_create(self):
 
+        '''
+        delete_contact method deletes a saved contact from the contact_list
+        '''
+
+        Create.create_list.remove(self)
 
 
  
-#     def test_save_create(self):
-#         '''
-#         test_save_contact test case to test if the contact object is saved into
-#             the contact list
-#         '''
-#         self.new_create.save_create() # saving the new contact
-#         self.assertEqual(len(Create.create_list),1)
 
 if __name__ ==  '__main__':
     unittest.main()

@@ -22,7 +22,7 @@ class Usertest(unittest.TestCase):
         the contact list
         '''
         self.new_create.save_create() # saving the new contact
-        self.assertEqual(len(Create.create_list),1)
+        self.assertEqual(len(Create.create_list),4)
 
     # create_list = [] # Empty contact list
     # # Init method up here
@@ -44,7 +44,7 @@ class Usertest(unittest.TestCase):
         self.new_create.save_create()
         test_create = Create("naima","niyigena","naima@gmail.com","mami","neimar") # new contact
         test_create.save_create()
-        self.assertEqual(len(Create.create_list),7)
+        self.assertEqual(len(Create.create_list),6)
         '''
         test to delete
         '''
@@ -59,13 +59,13 @@ class Usertest(unittest.TestCase):
         self.new_create.delete_create()# Deleting a create object
         self.assertEqual(len(Create.create_list),1)
 
-    def delete_create(self):
+    # def delete_create(self):
 
-        '''
-        delete_create method deletes a saved user from the create_list
-        '''
+    #     '''
+    #     delete_create method deletes a saved user from the create_list
+    #     '''
 
-        Create.create_list.remove(self)
+    #     Create.create_list.remove(self)
 
 
     def test_find_create_by_username(self):
