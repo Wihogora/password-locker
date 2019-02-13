@@ -45,11 +45,11 @@ def main():
     print('\n')
 
     while True:
-            print("Use these short codes : cc - create a new user, dc - display user, fc -find a user, dc - delete user, ex -exit the user list ")
+            print("Use these short codes : cu - create a new user, du - display user, fu - find a user , np - new password , gp - generate password , dl - delete user, ex -exit the user list ")
 
             short_code = input().lower()
 
-            if short_code == 'cc':
+            if short_code == 'cu':
                         print("New User")
                         print("-"*10)
 
@@ -74,14 +74,17 @@ def main():
                         print(f"New User {first_name} {last_name} created")
                         print ('\n')
 
-            elif short_code == 'dc':
+            elif short_code == 'du':
 
                         if display_user():
                                 print("Here is a list of all your user")
                                 print('\n')
 
                                 for user in display_user():
-                                        print(f"{user.first_name} {user.last_name} .....{user.username}")
+                                        print(f"First name.......{user.first_name}")
+                                        print(f"Last name.......{user.last_name}")
+                                        print(f" Email.......{user.email}")
+                                        
 
                                 print('\n')
                         else:
@@ -89,7 +92,7 @@ def main():
                                 print("You dont seem to have any user saved yet")
                                 print('\n')
 
-            elif short_code == 'fc':
+            elif short_code == 'fu':
 
                         print("Enter the username you want to search for")
 
@@ -102,7 +105,21 @@ def main():
                                 print(f"email.......{search_user.email}")
                                 print(f"password.......{search_user.password}")
                         else:
-                                print("That contact does not exist")
+                                print("That user does not exist")
+            elif short_code == 'dl':
+
+                        print("Enter the username you want to delete")
+
+                        search_username = input()
+                        if check_existing_user(search_username):
+                                search_user = find_user(search_username)
+                                print(f"{search_user.first_name} {search_user.last_name}")
+                                print('-' * 20)
+
+                                print(f"Deleted")
+                                
+                        else:
+                                print("That user does not exist")
 
             elif short_code == "ex":
                         print("Bye .......")
