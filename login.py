@@ -1,5 +1,5 @@
 from create import User
-
+# new_user= {}
 def create_user(first_name,last_name,email,username,password):
     '''
     Function to create a new user
@@ -44,37 +44,33 @@ def main():
     print(f"Hello {user_name}. what would you like to do?")
     print('\n')
 
+    print("New User")
+    print("-"*10)
+    print ("first_name ....")
+    first_name = input()
+    print("last_name ...")
+    last_name = input()
+    print("email ...")
+    email = input()
+    print("username ...")
+    username = input()
+    print("password ...")
+    password = input()
+    new_user = User(first_name,last_name,email,username,password)
+    save_user(new_user)
+    # save_user(create_user(first_name,last_name,email,username,password)) # create and save new user.
+    print ('\n')
+    print(f"New User {first_name} {last_name} created")
+    print ('\n')
     while True:
             print("Use these short codes : cu - create a new user, du - display user, fu - find a user , np - new password , gp - generate password , dl - delete user, ex -exit the user list ")
 
             short_code = input().lower()
 
-            if short_code == 'cu':
-                        print("New User")
-                        print("-"*10)
+        #     if short_code == 'cu':
+                        
 
-                        print ("first_name ....")
-                        first_name = input()
-
-                        print("last_name ...")
-                        last_name = input()
-
-                        print("email ...")
-                        email = input()
-
-                        print("username ...")
-                        username = input()
-
-                        print("password ...")
-                        password = input()
-
-
-                        save_user(create_user(first_name,last_name,email,username,password)) # create and save new user.
-                        print ('\n')
-                        print(f"New User {first_name} {last_name} created")
-                        print ('\n')
-
-            elif short_code == 'du':
+            if short_code == 'du':
 
                         if display_user():
                                 print("Here is a list of all your user")
@@ -111,10 +107,15 @@ def main():
                         print("Enter the username you want to delete")
 
                         search_username = input()
+                        # print(new_user)
                         if check_existing_user(search_username):
-                                search_user = find_user(search_username)
-                                print(f"{search_user.first_name} {search_user.last_name}")
-                                print('-' * 20)
+                                # new_user = User(first_name,last_name,email,username,password) 
+                                del_user(new_user)
+                                # print(f"{search_user.first_name} {search_user.last_name}")
+                                # print('-' * 20)
+
+                                 
+                         
 
                                 print(f"Deleted")
                                 
